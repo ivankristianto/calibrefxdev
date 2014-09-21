@@ -4,3 +4,13 @@
 /db-sync
 /content/upgrade/
 .DS_Store
+.buildpath
+.project
+.settings
+nbproject/*
+backup/*
+cache/*
+data/
+test*
+unused/*
+migration/*
