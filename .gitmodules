@@ -1,0 +1,6 @@
+[submodule "system"]
+	path = system
+	url = https://github.com/WordPress/WordPress.git
+[submodule "content/themes/calibrefx"]
+	path = content/themes/calibrefx
+	url = https://github.com/calibreworks/calibrefx.git
