@@ -4,5 +4,5 @@
 	branch = master
 [submodule "content/themes/calibrefx"]
 	path = content/themes/calibrefx
-	url = https://github.com/calibreworks/calibrefx.git
-	branch = master
+	url = git@github.com:calibreworks/calibrefx.git
+	branch = v2.0a
