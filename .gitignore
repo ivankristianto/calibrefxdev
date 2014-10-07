@@ -14,3 +14,4 @@ data/
 test*
 unused/*
 migration/*
+/system/.htaccess
