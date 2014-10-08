@@ -58,8 +58,8 @@ define( 'WPLANG', '' );
 // ===========
 // Hide errors
 // ===========
-ini_set( 'display_errors', 0 );
-define( 'WP_DEBUG_DISPLAY', false );
+ini_set( 'display_errors', 1 );
+define( 'WP_DEBUG_DISPLAY', true );
 
 // ======================================
 // Load a Memcached config if we have one
