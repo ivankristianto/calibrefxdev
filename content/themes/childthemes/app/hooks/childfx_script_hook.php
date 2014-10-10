@@ -1,4 +1,4 @@
-<?php defined('CALIBREFX_URL') OR exit();
+<?php
 
 add_action('admin_init', 'childthemes_load_admin_scripts');
 /**

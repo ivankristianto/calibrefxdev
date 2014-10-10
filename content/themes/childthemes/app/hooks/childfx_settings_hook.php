@@ -1,4 +1,4 @@
-<?php defined('CALIBREFX_URL') OR exit();
+<?php 
 
 add_filter( 'calibrefx_theme_settings_defaults', 'codename_theme_settings_default', $priority = 10, $accepted_args = 1 );
 function codename_theme_settings_default($default_arr = array()){
