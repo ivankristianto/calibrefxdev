@@ -45,18 +45,6 @@ label{
 	float: none !important;
 }
 
-/* Design Metabox Style */
-.custom-font-style-container{
-	margin-bottom: 20px;
-}
-.custom-font-style-wrapper select{
-	float: left;
-}
-.custom-font-style-wrapper .color-input{
-	float: left;
-	width: 75px !important;
-	margin-left: 5px;
-}
 
 /* Table Style */
 table.th {
