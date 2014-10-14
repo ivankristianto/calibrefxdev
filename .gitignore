@@ -16,3 +16,4 @@ unused/*
 migration/*
 /system/.htaccess
 error_log
+access_log
