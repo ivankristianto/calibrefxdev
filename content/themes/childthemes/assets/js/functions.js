@@ -1,4 +1,10 @@
 jQuery(document).ready(function($){
+	var container = document.querySelector('#content');
+	var msnry = new Masonry( container, {
+	  // options
+	  columnWidth: 30,
+	  itemSelector: '.post'
+	});
 });
 
 function check_focus(elm,val){
