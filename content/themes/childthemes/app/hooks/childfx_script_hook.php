@@ -1,16 +1,5 @@
 <?php
 
-add_action('admin_init', 'childthemes_load_admin_scripts');
-/**
- * This function loads the admin CSS files
- */
-function childthemes_load_admin_scripts() {
-    wp_enqueue_style('childthemes-admin', CHILD_CSS_URL . '/admin.style.css');
-
-    wp_enqueue_script('childthemes-admin', CHILD_JS_URL . '/admin.functions.js', array('jquery'));
-}
-
-
 add_action('init', 'childthemes_register_scripts');
 /**
  * This function register our style and script files

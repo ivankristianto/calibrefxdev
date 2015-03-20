@@ -18,3 +18,7 @@ migration/*
 error_log
 access_log
 *.log
+terminal.glue
+content/plugins/formidable/
+content/plugins/revslider/
+content/plugins/uploads/*
