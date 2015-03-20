@@ -18,7 +18,9 @@ migration/*
 error_log
 access_log
 *.log
+<<<<<<< HEAD
 terminal.glue
 content/plugins/formidable/
 content/plugins/revslider/
 content/plugins/uploads/*
+.c9/
