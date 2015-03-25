@@ -3,8 +3,8 @@ Contributors: whiteshadow
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A6P9S6CE3SRSW
 Tags: admin, dashboard, menu, security, wpmu
 Requires at least: 3.8
-Tested up to: 4.0
-Stable tag: 1.4.1
+Tested up to: 4.1.1
+Stable tag: 1.4.3
 
 Lets you edit the WordPress admin menu. You can re-order, hide or rename menus, add custom menus and more. 
 
@@ -62,6 +62,23 @@ Plugins installed in the `mu-plugins` directory are treated as "always on", so y
 3. Re-ordering menu items via drag and drop
 
 == Changelog ==
+
+= 1.4.3 =
+* Trying to delete a non-custom menu item will now trigger a warning dialog that offers to hide the item instead. In general, it's impossible to permanently delete menus created by WordPress itself or other plugins (without editing their source code, that is).
+* Added a workaround for a bug in W3 Total Cache 0.9.4.1 that could cause menu permissions to stop working properly when the CDN or New Relic modules were activated.
+* Fixed a plugin conflict where certain menu items didn't show up in the editor because the plugin that created them used a very low priority.
+* Signigicantly improved sanitization of menu properties. 
+* Renamed the "Choose Icon" button to "Media Library".
+* Minor compatibility improvements.
+
+= 1.4.2 =
+* Tested on WP 4.1 and 4.2-alpha.
+* Fixed a bug that allowed Administrators to bypass custom permissions for the "Appearance -> Customize" menu item.
+* Fixed a regression in the menu highlighting algorithm.
+* Fixed an "array to string conversion" notice caused by passing array data in the query string. 
+* Fixed menu scrolling occasionally not working when the user moved an item from one menu to another, much larger menu (e.g. having 20+ submenu items).
+* Fixed a bug where moving a submenu item from a plugin menu that doesn't have a hook callback (i.e. an unusable menu serving as a placeholder) to a different menu would corrupt the menu item URL.
+* Other minor bug fixes.
 
 = 1.4.1 =
 * Fixed "Appearance -> Customize" always showing up as "new" and ignoring custom settings.
