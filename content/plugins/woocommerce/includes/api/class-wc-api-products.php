@@ -549,7 +549,7 @@ class WC_API_Products extends WC_API_Resource {
 			'tax_status'         => $product->get_tax_status(),
 			'tax_class'          => $product->get_tax_class(),
 			'managing_stock'     => $product->managing_stock(),
-			'stock_quantity'     => (int) $product->get_stock_quantity(),
+			'stock_quantity'     => $product->get_stock_quantity(),
 			'in_stock'           => $product->is_in_stock(),
 			'backorders_allowed' => $product->backorders_allowed(),
 			'backordered'        => $product->is_on_backorder(),
@@ -629,7 +629,7 @@ class WC_API_Products extends WC_API_Resource {
 					'tax_status'        => $variation->get_tax_status(),
 					'tax_class'         => $variation->get_tax_class(),
 					'managing_stock'    => $variation->managing_stock(),
-					'stock_quantity'    => (int) $variation->get_stock_quantity(),
+					'stock_quantity'    => $variation->get_stock_quantity(),
 					'in_stock'          => $variation->is_in_stock(),
 					'backordered'       => $variation->is_on_backorder(),
 					'purchaseable'      => $variation->is_purchasable(),
@@ -1504,7 +1504,12 @@ class WC_API_Products extends WC_API_Resource {
 			}
 
 			$file_name = isset( $file['name'] ) ? wc_clean( $file['name'] ) : '';
-			$file_url  = wc_clean( $file['file'] );
+
+			if ( 0 === strpos( $file['file'], 'http' ) ) {
+				$file_url = esc_url_raw( $file['file'] );
+			} else {
+				$file_url = wc_clean( $file['file'] );
+			}
 
 			$files[ md5( $file_url ) ] = array(
 				'name' => $file_name,
@@ -1635,7 +1640,7 @@ class WC_API_Products extends WC_API_Resource {
 					$attachment_id = isset( $image['id'] ) ? absint( $image['id'] ) : 0;
 
 					if ( 0 === $attachment_id && isset( $image['src'] ) ) {
-						$upload = $this->upload_product_image( wc_clean( $image['src'] ) );
+						$upload = $this->upload_product_image( esc_url_raw( $image['src'] ) );
 
 						if ( is_wp_error( $upload ) ) {
 							throw new WC_API_Exception( 'woocommerce_api_cannot_upload_product_image', $upload->get_error_message(), 400 );
@@ -1649,7 +1654,7 @@ class WC_API_Products extends WC_API_Resource {
 					$attachment_id = isset( $image['id'] ) ? absint( $image['id'] ) : 0;
 
 					if ( 0 === $attachment_id && isset( $image['src'] ) ) {
-						$upload = $this->upload_product_image( wc_clean( $image['src'] ) );
+						$upload = $this->upload_product_image( esc_url_raw( $image['src'] ) );
 
 						if ( is_wp_error( $upload ) ) {
 							throw new WC_API_Exception( 'woocommerce_api_cannot_upload_product_image', $upload->get_error_message(), 400 );
@@ -1692,7 +1697,7 @@ class WC_API_Products extends WC_API_Resource {
 		$image_url = str_replace( ' ', '%20', $image_url );
 
 		// Get the file
-		$response = wp_remote_get( $image_url, array(
+		$response = wp_safe_remote_get( $image_url, array(
 			'timeout' => 10
 		) );
 
